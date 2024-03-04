@@ -2,7 +2,6 @@ package oy.tol.tra;
 
 /**
  * An interface to stack class holding elements of type E.
- * TODO: Implement this interface in a separate <code>StackImplementation.java</code> file.
  *       No implementation in this file!!
  * 
  */

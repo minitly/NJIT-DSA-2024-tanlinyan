@@ -3,8 +3,6 @@ package oy.tol.tra;
 /**
  * An implementation of the StackInterface.
  * <p>
- * TODO: Students, implement this so that the tests pass.
- * 
  * Note that you need to implement construtor(s) for your concrete StackImplementation, which
  * allocates the internal Object array for the Stack:
  * - a default constructor, calling the StackImplementation(int size) with value of 10.
@@ -23,15 +21,11 @@ public class StackImplementation<E> implements StackInterface<E> {
     * @throws StackAllocationException
     */
    public StackImplementation() throws StackAllocationException {
-      // TODO: call the constructor with size parameter with default size of 10.
       capacity=DEFAULT_STACK_SIZE;
       itemArray=new Object[DEFAULT_STACK_SIZE];
    }
 
-   /** TODO: Implement so that
-    * - if the size is less than 2, throw StackAllocationException
-    * - if the allocation of the array throws with Java exception,
-    *   throw StackAllocationException.
+   /**
     * @param capacity The capacity of the stack.
     * @throws StackAllocationException If cannot allocate room for the internal array.
     */
@@ -45,14 +39,12 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @Override
    public int capacity() {
-      // TODO: Implement this
       return this.capacity;
       
    }
 
    @Override
    public void push(E element) throws StackAllocationException, NullPointerException {
-      // TODO: Implement this
       if(size()==capacity()){
          Object[] tmp=new Object[this.capacity*2+1];
          for (int i = 0; i < itemArray.length; i++) {
@@ -88,21 +80,18 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @Override
    public int size() {
-      // TODO: Implement this
       return currentIndex+1;
       
    }
 
    @Override
    public void clear() {
-      // TODO: Implement this
       currentIndex=-1;
       
    }
 
    @Override
    public boolean isEmpty() {
-      // TODO: Implement this
       return currentIndex==-1;
       
    }

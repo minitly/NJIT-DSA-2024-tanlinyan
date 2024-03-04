@@ -59,7 +59,7 @@ public class QueueImplementation<E> implements QueueInterface<E>{
         currentSize++;        
     }
 
-    @SuppressWarnings("unchecked")
+
     @Override
     public E dequeue() throws QueueIsEmptyException {
         E returnE =element();
@@ -98,7 +98,6 @@ public class QueueImplementation<E> implements QueueInterface<E>{
     public String toString() {
         StringBuilder builder = new StringBuilder("[");
         int indexOfItemArray=head;
-        int indexOfTmp=0;
         int loopTime=currentSize;
         while(loopTime-->0){
             builder.append(itemArray[indexOfItemArray].toString());
@@ -110,11 +109,4 @@ public class QueueImplementation<E> implements QueueInterface<E>{
         builder.append("]");
         return builder.toString();
     }
-    // public static void main(String[] args) {
-    //     QueueImplementation<Integer> tt = new QueueImplementation<>();
-    //     for (int i = 0; i < 10; i++) {
-    //         tt.enqueue(i);
-    //     }
-    //     System.out.println(tt.toString());
-    // }
 }
