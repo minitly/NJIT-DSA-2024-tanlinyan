@@ -22,7 +22,7 @@ public class KeyValueHashTable<K extends Comparable<K>, V> implements Dictionary
 
     @Override
     public Type getType() {
-        return Type.NONE;
+        return Type.HASHTABLE;
     }
 
     @SuppressWarnings("unchecked")
@@ -41,8 +41,7 @@ public class KeyValueHashTable<K extends Comparable<K>, V> implements Dictionary
 
     @Override
     public int size() {
-        // TODO: Implement this.
-        return 0;
+        return count;
     }
 
     /**
@@ -70,29 +69,68 @@ public class KeyValueHashTable<K extends Comparable<K>, V> implements Dictionary
 
     @Override
     public boolean add(K key, V value) throws IllegalArgumentException, OutOfMemoryError {
-        // TODO: Implement this.
         // Remeber to check for null values.
-
+        if(key==null||value==null){
+            throw new IllegalArgumentException("the key and value can not be null");
+        }
         // Checks if the LOAD_FACTOR has been exceeded --> if so, reallocates to a bigger hashtable.
         if (((double)count * (1.0 + LOAD_FACTOR)) >= values.length) {
             reallocate((int)((double)(values.length) * (1.0 / LOAD_FACTOR)));
         }
         // Remember to get the hash key from the Person,
+        int hash=key.hashCode();
         // hash table computes the index for the Person (based on the hash value),
+        int index=hash%values.length;
+        if(index<0){
+            index+=values.length;
+        }
         // if index was taken by different Person (collision), get new hash and index,
+        int tmpIndex;
+        for(int i=0;;i++){
+            tmpIndex=(index+i*i)%values.length;
+            if(values[tmpIndex]==null){
         // insert into table when the index has a null in it,
+                values[tmpIndex]=new Pair<K,V>(key, value);
+                count++;
+                return true;
+            }else if(values[tmpIndex].getKey().equals(key)){
+                values[tmpIndex].setValue(value);
+                return true;
+            }
+            collisionCount++;
+            if(i>maxProbingSteps){
+                maxProbingSteps=i;
+            }
+        }
+        
+
         // return true if existing Person updated or new Person inserted.
         
-        return false;
+        //return false;
     }
 
     @Override
     public V find(K key) throws IllegalArgumentException {
         // Remember to check for null.
-
+        if(key==null){
+            throw new IllegalArgumentException("the key cannot be null");
+        }
         // Must use same method for computing index as add method
-        
-        return null;
+        int hash=key.hashCode();
+        int index=hash%values.length;
+        if(index<0){
+            index+=values.length;
+        }
+        int tmpIndex;
+        for(int i=0;;i++){
+            tmpIndex=(index+i*i)%values.length;
+            if(values[tmpIndex]==null){
+                return null;
+            }else if(values[tmpIndex].getKey().equals(key)){
+                return values[tmpIndex].getValue();
+            }
+        }
+        //return null;
     }
 
     @Override
