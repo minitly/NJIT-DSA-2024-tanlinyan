@@ -5,7 +5,6 @@ package oy.tol.tra;
  * files
  * match.
  * <p>
- * TODO: Students, implement the checkParentheses() method using your
  * StackImplementation
  * to check if parentheses in the two test files match or not.
  * <p>
@@ -30,7 +29,6 @@ public class ParenthesisChecker {
    }
 
    /**
-    * TODO: Implement this function which checks if the given string has matching
     * opening and closing
     * parentheses. It should check for matching parentheses:
     * <p>
