@@ -47,7 +47,6 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
 
     @Override
     public boolean add(K key, V value) throws IllegalArgumentException, OutOfMemoryError {
-        // TODO: Implement this
         // Remember null check.
         if(key==null||value==null){
             throw new IllegalArgumentException("the key and value can not be null");
@@ -66,6 +65,10 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
         
         if(result==1){
             count++;
+        }
+        int curDepth=calculateDepth(root);
+        if(curDepth>maxTreeDepth){
+            maxTreeDepth=curDepth;
         }
         return true;
     }
@@ -97,5 +100,12 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
         // Nothing to do here, since BST does not use extra space like array based
         // structures.
     }
-
+    private int calculateDepth(TreeNode<K, V> node) {
+        if (node == null) {
+            return 0;
+        }
+        int leftDepth = calculateDepth(node.left);
+        int rightDepth = calculateDepth(node.right);
+        return 1 + Math.max(leftDepth, rightDepth);
+    }
 }

@@ -39,11 +39,11 @@ public class Algorithms {
         return -1;
     }
 
-    public static <E extends Comparable<E>> void fastSort(E [] array) {
+    public static <T extends Comparable<T>> void fastSort(T [] array) {
         quickSort(array, 0, array.length - 1);
     }
 
-    public static <E extends Comparable<E>> void quickSort(E [] array, int begin, int end) {
+    public static <T extends Comparable<T>> void quickSort(T [] array, int begin, int end) {
         if(begin>=end){
             return;
         }
@@ -51,8 +51,8 @@ public class Algorithms {
         quickSort(array, begin, pivot-1);
         quickSort(array, pivot+1, end);
     }
-    private static <E extends Comparable<E>> int partition(E [] array, int begin, int end) {
-        E p=array[begin];
+    private static <T extends Comparable<T>> int partition(T [] array, int begin, int end) {
+        T p=array[begin];
         int left=begin;
         int right=end;
         while(left!=right){

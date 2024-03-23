@@ -101,7 +101,6 @@ public class Algorithms {
         return left;
 
     }
-    //TODO: this is for a test,need to be written by youself
     public static <T> void sortWithComparator( T[] array, Comparator<? super T> comparator) {
         Arrays.sort(array, comparator);
     }

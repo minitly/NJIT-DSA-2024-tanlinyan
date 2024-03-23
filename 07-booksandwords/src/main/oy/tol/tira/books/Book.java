@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * TODO: This interface class MUST be implemented following the instructions in the README.md.
+ * 
 
  * @see BookFactory#createBook()
  * @author Antti Juustila
