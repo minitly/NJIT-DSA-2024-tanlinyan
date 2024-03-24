@@ -1,5 +1,36 @@
 # REPORT OF THE STUDY
 
+#### Important: During testing, I have already written the return value for BookFactory, but I am unable to test HashTable and BST simultaneously, so I have left a comment here so that you can switch between them during testing
+
+```java
+package oy.tol.tira.books;
+
+/**
+ * <p>
+ * Implement the <code>createBook()</code> method to return your instance of the Book interface.
+ * 
+ * @author Antti Juustila
+ * @version 1.0
+ */
+public final class BookFactory {
+    private BookFactory() {
+    }
+
+    /**
+     * @return Your implementation of the Book interface.
+     */
+    public static Book createBook() {
+        // return null;
+        //return new BadBookImplementation();
+        //return new HashTableBookImplementation();
+        return new BSearchTreeBookImplementation();
+    }
+}
+
+```
+
+
+
 ## 0.WordCount
 
 This is a custom class I prepared for reading, which rewrites the hashCode method and provides a pointer to the tree structure, so that it can be called by both hashtable and BST.
