@@ -17,6 +17,7 @@ public final class BookFactory {
     public static Book createBook() {
         // return null;
         //return new BadBookImplementation();
-        return new HashTableBookImplementation();
+        //return new HashTableBookImplementation();
+        return new BSearchTreeBookImplementation();
     }
 }
