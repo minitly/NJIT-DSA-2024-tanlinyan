@@ -45,6 +45,9 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @Override
    public void push(E element) throws StackAllocationException, NullPointerException {
+      if(element==null){
+         throw new NullPointerException();
+      }
       if(size()==capacity()){
          Object[] tmp=new Object[this.capacity*2+1];
          for (int i = 0; i < itemArray.length; i++) {
@@ -53,9 +56,6 @@ public class StackImplementation<E> implements StackInterface<E> {
          itemArray=tmp;
          tmp=null;
          capacity=capacity*2+1;
-      }
-      if(element==null){
-         throw new NullPointerException();
       }
       itemArray[++currentIndex]=element;      
    }
