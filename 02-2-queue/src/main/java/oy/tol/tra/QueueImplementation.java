@@ -93,6 +93,7 @@ public class QueueImplementation<E> implements QueueInterface<E>{
        head=0;
        tail=-1;
        currentSize=0;
+       itemArray=new Object[capacity];
     }
 
     @Override

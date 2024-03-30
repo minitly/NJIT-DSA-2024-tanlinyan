@@ -89,6 +89,7 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @Override
    public void clear() {
+      itemArray=new Object[capacity];
       currentIndex=-1;
    }
 
