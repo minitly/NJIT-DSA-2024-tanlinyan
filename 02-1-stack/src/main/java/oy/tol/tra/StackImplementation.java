@@ -66,7 +66,10 @@ public class StackImplementation<E> implements StackInterface<E> {
       if(isEmpty()){
          throw new StackIsEmptyException("Stack is empty");
       }
-      return (E)itemArray[currentIndex--];
+      E returnVal=(E)itemArray[currentIndex];
+      itemArray[currentIndex]=null;
+      currentIndex--;
+      return returnVal;
    }
 
    @SuppressWarnings("unchecked")
@@ -87,7 +90,6 @@ public class StackImplementation<E> implements StackInterface<E> {
    @Override
    public void clear() {
       currentIndex=-1;
-      
    }
 
    @Override
